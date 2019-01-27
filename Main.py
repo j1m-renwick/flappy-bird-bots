@@ -23,7 +23,7 @@ clock = pygame.time.Clock()
 screen = Screen(pygame.display.set_mode(size), SCREEN_Y - 20)
 
 background = Background(screen.screen)
-generation_counter = 0
+generation_counter = 1
 bird_population = []
 dead_birds = []
 
