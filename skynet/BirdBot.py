@@ -3,22 +3,11 @@ from skynet.PredictiveNeuralNet import PredictiveNeuralNet
 
 
 class BirdBot(Bird):
-
-    # nn = PredictiveNeuralNet([2,10,5,2])
-    #
-    # # get the computed actions based on the inputs
-    # nn.setInputData(np.array([1.2,0.4]))
-    #
-    # print(nn.predict())
-    # aa = nn.copy()
-    # aa = aa.mutate(1)
-    # aa.setInputData(np.array([1.2,0.4]))
-    # print(aa.predict())
     score = 0
 
-    def __init__(self, screen, brain = None):
+    def __init__(self, screen, brain=None):
         super().__init__(screen)
-        if (brain != None):
+        if brain is not None:
             self.net = brain
         else:
             self.net = PredictiveNeuralNet([4, 4, 1])

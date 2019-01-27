@@ -19,12 +19,6 @@ def mutate(current_value, mutation_rate):
 # A neural net with feedforward predictive capabilities ONLY.  Cannot be trained.
 class PredictiveNeuralNet:
 
-    # def __init__(self, numberOfInputNodes, numberOfHiddenNodes, numberOfOutputNodes):
-    #     self.numI = numberOfInputNodes
-    #     self.numH = numberOfHiddenNodes
-    #     self.numO = numberOfOutputNodes
-    #     self.createWeightMatrices();
-
     def __init__(self, listOfNodes):
         self.totalNodeList = listOfNodes
         self.createWeightMatrices()
@@ -32,12 +26,9 @@ class PredictiveNeuralNet:
     def setInputData(self, inputVector):
         # sets a numpy row vector and bias as the input vector layer.
         # append 1 to the front as a bias value - e.g. [1,x,y,z,....] )
-        # print("INPUT")
-        # print(inputVector)
         biasAndInputs = np.append(np.array([1]), inputVector)
         # convert the row vector to a column vector
         self.inputData = biasAndInputs[np.newaxis].T
-        # print(self.inputData)
 
     def createWeightMatrices(self):
         # set up weight matrices with random starting values
@@ -57,22 +48,6 @@ class PredictiveNeuralNet:
         for i in range(len(self.totalNodeList) - 1):
             self.weightsList.append(
                 np.random.uniform(low=-1, high=1, size=(self.totalNodeList[i + 1], self.totalNodeList[i] + 1)))
-
-    # def predict(self):
-    #     # feedforward for input->hidden layer (dot product of the weights and the inputs)
-    #     self.hiddenData = self.weightsIH.dot(self.inputData)
-    #     # apply activation function (sigmoid in this case)
-    #     self.hiddenData = np.array(list(map(sigmoid, self.hiddenData)))
-    #     # add a bias of 1 to the hiddenData before feeding forward again
-    #     self.hiddenData = np.append(np.array([1]), self.hiddenData)[np.newaxis].T
-    #     # feedforward for hidden->output layer (dot product of the weights and the hidden inputs)
-    #     self.outputData = self.weightsHO.dot(self.hiddenData)
-    #     # apply activation function (sigmoid in this case)
-    #     self.outputData = np.array(list(map(sigmoid, self.outputData)))
-    #     # print("OUTPUT")
-    #     # print(self.outputData)
-    #     # return a column vector of N outputs
-    #     return self.outputData
 
     def predict(self):
 
@@ -101,12 +76,6 @@ class PredictiveNeuralNet:
         # clear the input data, just in case...
         copiedSelf.inputData = None
         return copiedSelf
-
-    # def mutate(self, mutationRate):
-    #     # mutate the brain!!....nerg....argh.....kill all humans...etc
-    #     self.weightsIH = np.array(list(map(lambda p: mutate(p, 0.1), self.weightsIH)))
-    #     self.weightsHO = np.array(list(map(lambda p: mutate(p, 0.1), self.weightsHO)))
-    #     return self
 
     def mutate(self, mutationRate):
         # mutate the brain!!....nerg....argh.....kill all humans...etc
