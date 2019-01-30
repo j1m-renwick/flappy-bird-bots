@@ -27,7 +27,7 @@ generation_counter = 1
 bird_population = []
 dead_birds = []
 
-for i in range(0, 50):
+for i in range(0, 10):
     bird_population.append(BirdBot(screen.screen))
 
 pipes = []

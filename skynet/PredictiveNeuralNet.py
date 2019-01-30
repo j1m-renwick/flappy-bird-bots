@@ -30,14 +30,14 @@ class PredictiveNeuralNet:
         # convert the row vector to a column vector
         self.inputData = biasAndInputs[np.newaxis].T
 
-    def createWeightMatrices(self):
-        # set up weight matrices with random starting values
-        # input->hidden: numH x numI (+ 1 random bias weight to each row)
-        self.weightsIH = np.random.uniform(low=-1, high=1, size=(self.numH, self.numI + 1))
-        # self.weightsIH = np.random.random((self.numH, self.numI+1))
-        # hidden->ouput: numO x numH (+ 1 random bias weight to each row)
-        self.weightsHO = np.random.uniform(low=-1, high=1, size=(self.numO, self.numH + 1))
-        # self.weightsHO = np.random.random((self.numO,self.numH+1))
+    # def createWeightMatrices(self):
+    #     # set up weight matrices with random starting values
+    #     # input->hidden: numH x numI (+ 1 random bias weight to each row)
+    #     self.weightsIH = np.random.uniform(low=-1, high=1, size=(self.numH, self.numI + 1))
+    #     # self.weightsIH = np.random.random((self.numH, self.numI+1))
+    #     # hidden->ouput: numO x numH (+ 1 random bias weight to each row)
+    #     self.weightsHO = np.random.uniform(low=-1, high=1, size=(self.numO, self.numH + 1))
+    #     # self.weightsHO = np.random.random((self.numO,self.numH+1))
 
     def createWeightMatrices(self):
         # set up weight matrices with random starting values
